@@ -1,4 +1,3 @@
-
 import pygame 
 
 pygame.init()
@@ -15,9 +14,13 @@ while running:
             running = False
             
     screen.fill(white)
-    pygame.draw.circle(screen, (0, 0, 0), (400, 300), 50) #draws a circle and others shapes
-    pygame.draw.line(screen, black, (30,30), (100,30), 2) #draws a line
-    #screen.blit(pygame.image.load('images/eu.jpg'), (7, 3))
+    #pygame.draw.line(screen, black, (0,300), (800, 300), 2) #draws a straight line
+    #pygame.draw.line(screen, black, (0,0), (800, 600), 2) #draws a straight line
+    #pygame.draw.lines(screen, black, True, [(50,50), (400, 550), (750, 50)], 2) #draws a straight line
+    #pygame.draw.line(screen, black, (0,300), (800, 300), 2) 
+    #pygame.draw.lines
+
+    screen.blit(pygame.image.load('images/eu.jpg'), (7, 3))
     
     pygame.display.update()
-pygame.quit()
+pygame.quit()   

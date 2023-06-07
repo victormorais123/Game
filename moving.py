@@ -1,10 +1,13 @@
-
 import pygame 
 
 pygame.init()
 length = (800, 600)
 white = (255, 255, 255)
 black = (0, 0, 0)
+clock = pygame.time.Clock()
+positionBall = 0
+velocity = 1
+right = True
 screen = pygame.display.set_mode(length) #moving the screen to the middle
 running = True
 while running:
@@ -15,9 +18,22 @@ while running:
             running = False
             
     screen.fill(white)
-    pygame.draw.circle(screen, (0, 0, 0), (400, 300), 50) #draws a circle and others shapes
-    pygame.draw.line(screen, black, (30,30), (100,30), 2) #draws a line
-    #screen.blit(pygame.image.load('images/eu.jpg'), (7, 3))
+    pygame.draw.circle(screen,black, (positionBall, 300), 30) #draws a circle and others shapes
+
+    if positionBall >= 800:
+        right = False
+        velocity = velocity + 1
+    elif positionBall <= 0:
+        right = True
+        velocity = velocity + 1
+
+    if right:
+        positionBall = velocity + 1
+    else:
+        positionBall = velocity - 1
+
     
+
     pygame.display.update()
-pygame.quit()
+    clock.tick(60)
+pygame.quit()   
